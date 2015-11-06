@@ -340,6 +340,11 @@ var Messenger = React.createClass({
 
     peer.on('disconnected', function(data) {
       console.log('Peer disconnected', data);
+      peer = new Peer(self.props.currentUser, {
+        host: window.location.hostname,
+        port: process.env.PORT,
+        path: '/peerjs'
+      })
     });
 
 
